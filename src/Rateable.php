@@ -77,6 +77,11 @@ trait Rateable
     {
         return $this->ratings()->where('user_id', Auth::id())->sum('rating');
     }
+    
+    public function userIdSumRating($user = null)
+    {
+        return $this->ratings()->where('user_id', $user)->sum('rating');
+    }
 
     public function ratingPercent($max = 5)
     {
